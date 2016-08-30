@@ -1,0 +1,28 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="/static/js/jquery-3.1.0.min.js"></script>
+</head>
+<body>
+<br>purchase_id=1的商品信息
+<br>code:{{code}}
+<br>msg:{{msg}}
+<br>res:{{res}}
+<form action="/order/signup" method="post">
+姓名:<input type="text">
+<br>
+电话:<input type="text">
+<br>
+类别:
+<br>
+{% for item in res%}
+<input type="checkbox" name="kinds" value="{{item['kind_id']}}"> {{item['kind']}}
+{% end for %}
+</form>
+<input type="submit" value="确定">
+</body>
+<script>
+function baoming(){//js中的函数
+}
+</script>
+</html>
