@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <title></title>
+    <script>
+        document.addEventListener('DOMContentLoaded',function(){
+         var docEl = window.document.documentElement;
+         var width = docEl.getBoundingClientRect().width;
+         var rootSize = width/1080*100;
+         docEl.style.fontSize = rootSize + 'px';
+       },false);
+    </script>
+    <link rel="stylesheet" href="dist/css/main.css">
+</head>
+<body>
+
+<div id="formbackground" style="width:100%;">
+<img src="src/img/bg.png" height="100%" width="100%"/>
+</div>
+
+<div class="button-wrapper">
+    <a href="/application.html" class="btn btn-confirm">报名</a>
+</div>
+
+
+
+</body>
+</html>

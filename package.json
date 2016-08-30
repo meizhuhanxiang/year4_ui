@@ -1,0 +1,28 @@
+{
+  "name": "gstep_tickets",
+  "version": "1.0.0",
+  "description": "",
+  "main": "count.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "~3.9.1",
+    "gulp-clean-css": "^2.0.9",
+    "gulp-headerfooter": "^1.0.3",
+    "gulp-concat": "^2.6.0",
+    "gulp-less": "^3.1.0",
+    "gulp-uglify": "^1.5.3"
+  },
+  "dependencies": {
+    "glob": "~7.0.6",
+    "lodash": "~4.15.0",
+    "indx": "~0.2.3",
+    "resolve": "~1.1.7",
+    "semver": "~5.3.0",
+    "fobject": "0.0.4",
+    "when": "~3.7.7"
+  }
+}

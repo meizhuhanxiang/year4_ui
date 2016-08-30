@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <title></title>
+    <script>
+        document.addEventListener('DOMContentLoaded',function(){
+         var docEl = window.document.documentElement;
+         var width = docEl.getBoundingClientRect().width;
+         var rootSize = width/1080*100;
+         docEl.style.fontSize = rootSize + 'px';
+       },false);
+    </script>
+    <link rel="stylesheet" href="/static/css/main.css">
+</head>
+<body>

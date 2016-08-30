@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <title></title>
+    <script>
+        document.addEventListener('DOMContentLoaded',function(){
+         var docEl = window.document.documentElement;
+         var width = docEl.getBoundingClientRect().width;
+         var rootSize = width/1080*100;
+         docEl.style.fontSize = rootSize + 'px';
+       },false);
+    </script>
+    <link rel="stylesheet" href="dist/css/main.css">
+</head>
+<body>
+
+<div class="wrapper">
+  <div class="header">
+    <img src="dist/img/back.png" alt="">
+    填写报名信息
+  </div>
+  <div class="logo_show">
+    <img src="dist/img/logo.png" alt="">
+  </div>
+  <div class="form_field">
+      <div class="validate-item"><span>参赛姓名：</span><input type="text" name="userName" id="userName"><p class="error"></p></div>
+      <div class="validate-item choose"><span>报名舞种：</span><div class="choose-item">
+        <div class="item">
+          <ul>
+            <li><input type="checkbox" name="" id=""><span>poppin</span></li>
+            <li><input type="checkbox" name="" id=""><span>kidfree style</span></li>
+          </ul>
+        </div>
+        <div class="item">
+         <ul>
+            <li><input type="checkbox" name="" id=""><span>locking</span>></li>
+            <li><input type="checkbox" name="" id=""><span>Hip-Hop</span></li>
+          </ul>
+        </div>
+      </div></div>
+      <div class="validate-item"><span>选手电话：</span><input type="text" name="phone" id="phone"><p class="error"></p></div>
+      <div class="validate-item"><span>选手微信号：</span><input type="text" placeholder="选填" name="weixin" id="weixin"><p class="error"></p></div>
+
+  </div>
+
+</div>
+
+
+<div class="button-wrapper button-wrapper-static">
+    <a href="/orderlist.html" class="btn btn-confirm" id="submit">提交</a>
+</div>
+<script src="../dist/js/main.js"></script>
+</body>
+</html>
