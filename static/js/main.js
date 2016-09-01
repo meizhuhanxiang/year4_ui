@@ -144,12 +144,14 @@ submit.onclick = function() {
         reqwest({
             url: '/order/signup',
             method: 'post',
+            type: 'json',
+            contentType: 'application/json',
             data: {
-                "kind_id": [1,2],
-                "purchase_id": "test",
+                "kind_ids": [1,2],
+                "purchase_id": 1,
                 "phone": "1342461052",
                 "name": "aaa",
-                "wechat_no": "asdad"
+                "wechat_n": "asdad"
             },
             success: function(resp) {
                 console.log("请求成功")

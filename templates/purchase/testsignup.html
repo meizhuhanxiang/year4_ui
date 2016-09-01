@@ -2,91 +2,103 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
     <title></title>
+    <script type="text/javascript" src="/static/js/jquery.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded',function(){
-         var docEl = window.document.documentElement;
-         var width = docEl.getBoundingClientRect().width;
-         var rootSize = width/1080*100;
-         docEl.style.fontSize = rootSize + 'px';
-       },false);
+        document.addEventListener('DOMContentLoaded', function () {
+            var docEl = window.document.documentElement;
+            var width = docEl.getBoundingClientRect().width;
+            var rootSize = width / 1080 * 100;
+            docEl.style.fontSize = rootSize + 'px';
+        }, false);
+        function setpost() {
+            alert('aaaa');
+            var phone = $("#phone").val();
+            var wechat_no = $("#wechat_no").val();
+            var name = $("#name").val();
+            var kind_ids = Array();
+            $("input[name='kinds']").each(function() {  
+                if ($(this).prop('checked')){
+                    kind_ids.push($(this).val())
+                }
+            });
+            var post_obj = {
+                        purchase_id: 1,
+                        kind_ids: JSON.stringify(kind_ids),
+                        name: name,
+                        phone: phone,
+                        wechat_no:wechat_no
+                    }
+            alert(JSON.stringify(post_obj));
+            $.post(
+                    "/order/signup",
+                    post_obj,
+                    function (result) {
+                        alert(JSON.stringify(result));
+                        if (result.code == "0") {
+                            WeixinJSBridge.invoke(
+                                    'getBrandWCPayRequest', result.res,
+                                    function (res) {
+                                        alert(JSON.stringify(res));
+                                    }
+                            );
+
+                        }
+                    }
+            );
+        }
+        if (typeof WeixinJSBridge == "undefined") {
+            if (document.addEventListener) {
+                document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+            } else if (document.attachEvent) {
+                document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+                document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+            }
+        } else {
+            onBridgeReady();
+        }
     </script>
     <link rel="stylesheet" href="/static/css/main.css">
 </head>
 <body>
 
 <div class="wrapper">
-  <div class="header">
-    <a href="/purchase/index?purchase_id=1"><img src="/static/img/back.png" alt=""></a>
-    填写报名信息
-  </div>
-  <div class="logo_show">
-    <img src="/static/img/logo.png" alt="">
-  </div>
-  <div class="form_field">
-      <div class="validate-item"><span>参赛姓名：</span><input type="text" name="userName" id="userName"><p class="error"></p></div>
-      <div class="validate-item choose"><span>报名舞种：</span><div class="choose-item">
-        <div class="item">
-          <ul>
-            <li><input type="checkbox" name="1" id=""><span>poppin</span></li>
-            <li><input type="checkbox" name="2" id=""><span>kidfree style</span></li>
-          </ul>
+    <div class="header">
+        <a href="/purchase/index?purchase_id=1"><img src="/static/img/back.png" alt=""></a>
+        填写报名信息
+    </div>
+    <div class="logo_show">
+        <img src="/static/img/logo.png" alt="">
+    </div>
+    <div class="form_field">
+        <div class="validate-item"><span>参赛姓名：</span><input type="text" name="name" id="name" value="郭广川">
+            <p class="error"></p></div>
+        <div class="validate-item choose"><span>报名舞种：</span>
+
+            <div class="choose-item">
+                {% for index, item in enumerate(res) %}
+                    {% if index%2==0 %}
+                    <div class="item">
+                        <ul>
+                    {% end %}
+                    <li><input type="checkbox" name="kinds" value="{{item['kind_id']}}"><span>{{item['kind']}}</span></li>
+                    {% if index%2==1 %}
+                        </ul>
+                    </div>
+                    {% end %}
+                {% end %}
+            </div>
         </div>
-        <div class="item">
-         <ul>
-            <li><input type="checkbox" name="3" id=""><span>locking</span>></li>
-            <li><input type="checkbox" name="4" id=""><span>Hip-Hop</span></li>
-          </ul>
-        </div>
-      </div></div>
-      <div class="validate-item"><span>选手电话：</span><input type="text" name="phone" id="phone"><p class="error"></p></div>
-      <div class="validate-item"><span>选手微信号：</span><input type="text" placeholder="选填" name="weixin" id="weixin"><p class="error"></p></div>
+        <div class="validate-item"><span>选手电话：</span><input type="text" name="phone" id="phone" value="15210828699">
 
-  </div>
+            <p class="error"></p></div>
+        <div class="validate-item"><span>选手微信号：</span><input type="text" placeholder="选填" name="wechat_no"
+                                                             id="wechat_no" value="ggc0402">
 
+            <p class="error"></p></div>
+    </div>
 </div>
-
-
-<div class="button-wrapper button-wrapper-static">
-    <a href="javascript:;" class="btn btn-confirm" id="submit">提交</a>
-    <input type="button" value="提交" onclick="setpost()">
-</div>
-<script src="/static/js/main.js"></script>
+    <input type="button" class="btn btn-confirm"  value="提交" onclick="setpost()">
 </body>
-<script>
-    function setpost(){
-      $.post(
-        "/order/signup",
-        {
-            purchase_id:1,
-            kind_ids:"[1, 2]",
-            name:"guoguangchuan",
-            phone:"12345678901"
-        },
-        function(result){
-            alert(JSON.stringify(result));
-            if (result.code=="0"){
-                WeixinJSBridge.invoke(
-                   'getBrandWCPayRequest', result.res,
-                   function(res){     
-                       alert(JSON.stringify(res));
-                   }
-                ); 
-
-            }
-        }
-        );
-    }
-    if (typeof WeixinJSBridge == "undefined"){
-       if( document.addEventListener ){
-           document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
-       }else if (document.attachEvent){
-           document.attachEvent('WeixinJSBridgeReady', onBridgeReady); 
-           document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
-       }
-    }else{
-       onBridgeReady();
-    }
-</script>
 </html>
