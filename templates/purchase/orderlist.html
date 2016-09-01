@@ -73,11 +73,10 @@
     <a href="javascript:;" class="btn btn-white" id="orderCommit">提交</a>
 </div>
 </div>
-
 <script>
 document.querySelector("#orderCommit").onclick = function() {
     WeixinJSBridge.invoke(
-      'getBrandWCPayRequest', resp.res,
+    'getBrandWCPayRequest', JSON.parse("{{jsapi_res}}"),
       function(res) {
           alert(JSON.stringify(res));
           // window.location = "/orderlist.html";
