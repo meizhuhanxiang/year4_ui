@@ -141,22 +141,37 @@ submit.onclick = function() {
     if (errorMsg) {
         return false;
     } else {
-        reqwest({
-            url: '/order/signup',
-            method: 'post',
-            type: 'json',
-            contentType: 'application/json',
-            data: {
-                "kind_ids": [1,2],
-                "purchase_id": 1,
-                "phone": "1342461052",
-                "name": "aaa",
-                "wechat_n": "asdad"
-            },
-            success: function(resp) {
-                console.log("请求成功")
-            }
-        })
+        var nodelist = document.querySelectorAll("input[type=checkbox]:checked");
+        if(nodelist.length == 0 ){
+            checkboxError.style.display = "block";
+        } else {
+            checkboxError.style.display = "none";
+            var kind_ids = Array.prototype.slice.call(nodelist).map(function(item) {return item.name});
+            reqwest({
+                url: '/order/signup',
+                type: 'json',
+                method: 'post',
+                data: {
+                    "kind_ids": JSON.stringify(kind_ids),
+                    "purchase_id": 1,
+                    "phone": phone.value,
+                    "name": userName.value,
+                    "wechat_n": weixin.value
+                },
+                success: function(resp) {
+                    if (resp.code == "0") {
+                        // WeixinJSBridge.invoke(
+                        //     'getBrandWCPayRequest', resp.res,
+                        //     function(res) {
+                        //         alert(JSON.stringify(res));
+                        //     }
+                        // );
+                        window.location = "/order/list?purchase_id=1"
+                    }
+
+                }
+            })
+        }
     }
 };
 // 策略模式
