@@ -17,7 +17,8 @@
 <body>
 <div class="wrapper">
     <div class="header">
-    <img src="dist/img/back.png" alt="">
+    <a href="/purchase/kinds?purchase_id=1"><img src="/static/img/back.png" alt=""></a>
+
     订单详情
   </div>
 </div>
@@ -69,8 +70,14 @@
    </div>
 
 <div class="button-wrapper button-wrapper-static" style="margin-top: 0.7rem;">
-    <a href="/orderlist.html" class="btn btn-white">提交</a>
+    <a href="javascript:;" class="btn btn-white" id="orderCommit">提交</a>
 </div>
 </div>
+
+<script>
+document.querySelector("orderCommit").onclick = function() {
+  window.location = "/orderlist.html";
+}
+</script>
 </body>
 </html>
