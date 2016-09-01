@@ -76,7 +76,13 @@
 
 <script>
 document.querySelector("#orderCommit").onclick = function() {
-  window.location = "/orderlist.html";
+    WeixinJSBridge.invoke(
+      'getBrandWCPayRequest', resp.res,
+      function(res) {
+          alert(JSON.stringify(res));
+          // window.location = "/orderlist.html";
+      }
+  );
 }
 </script>
 </body>
