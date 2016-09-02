@@ -150,7 +150,7 @@ submit.onclick = function() {
                     "purchase_id": 1,
                     "phone": phone.value,
                     "name": userName.value,
-                    "wechat_n": weixin.value
+                    "wechat_no": weixin.value
                 },
                 success: function(resp) {
                     if (resp.code == "0") {
