@@ -5,7 +5,6 @@
     订单详情
   </div>
 </div>
-
 <div id="jsapi_res" style="display:none">{{jsapi_res}}</div>
 <div class="bg-normal">
 
@@ -59,8 +58,8 @@
 
 <script>
 var jsapi_res = document.querySelector("#jsapi_res").innerHTML;
-document.querySelector("#orderCommit").onclick = function() {
 
+document.querySelector("#orderCommit").onclick = function() {
      WeixinJSBridge.invoke(
        'getBrandWCPayRequest', JSON.parse(jsapi_res),
        function(res) {
