@@ -52,7 +52,7 @@
    </div>
 
    <div class="list-row">
-       <span>已付报名费</span> <span class="fr">￥{{total_fee}}</span>
+       <span>已付报名费</span> <span class="fr">￥99.00</span>
    </div>
    <div class="list-row">
        <p>
@@ -73,10 +73,11 @@
     <a href="javascript:;" class="btn btn-white" id="orderCommit">提交</a>
 </div>
 </div>
+
 <script>
 document.querySelector("#orderCommit").onclick = function() {
     WeixinJSBridge.invoke(
-    'getBrandWCPayRequest', JSON.parse("{{jsapi_res}}"),
+      'getBrandWCPayRequest', {{jsapi_res}},
       function(res) {
           alert(JSON.stringify(res));
           // window.location = "/orderlist.html";

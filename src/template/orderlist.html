@@ -16,19 +16,19 @@
     <ul>
         <li>
             <span class="row-label">参赛姓名：</span>
-            <span class="row-item">范晓宇</span>
+            <span class="row-item">{{name}}</span>
         </li>
         <li>
             <span class="row-label">报名舞种：</span>
-            <span class="row-item">Popping</span>
+            <span class="row-item">{{kinds}}</span>
         </li>
         <li>
             <span class="row-label">选手电话：</span>
-            <span class="row-item">13552266949</span>
+            <span class="row-item">{{phone}}</span>
         </li>
         <li>
             <span class="row-label">选手微信号：</span>
-            <span class="row-item">913741803</span>
+            <span class="row-item">{{wechat_no}}</span>
         </li>
     </ul>
 
@@ -60,7 +60,7 @@
 <script>
 document.querySelector("#orderCommit").onclick = function() {
     WeixinJSBridge.invoke(
-      'getBrandWCPayRequest', resp.res,
+      'getBrandWCPayRequest', {{jsapi_res}},
       function(res) {
           alert(JSON.stringify(res));
           // window.location = "/orderlist.html";
