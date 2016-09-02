@@ -160,8 +160,9 @@ submit.onclick = function() {
                         //         alert(JSON.stringify(res));
                         //     }
                         // );
-                        alert('预下订单成功')
--                       window.location = "/order/list?out_trade_no="+resp.res.out_trade_no;
+                        alert('预下订单成功');
+                        console.log("预下订单成功")
+                      window.location = "/order/list?out_trade_no="+resp.res.out_trade_no;
                     }
 
                 }

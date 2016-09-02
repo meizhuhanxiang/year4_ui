@@ -23,7 +23,7 @@
   </div>
 </div>
 
-
+<div id="jsapi_res" style="display:none">{{jsapi_res}}</div>
 <div class="bg-normal">
 
    <div class="list-row">
@@ -75,15 +75,17 @@
 </div>
 
 <script>
+var jsapi_res = document.querySelector("#jsapi_res").innerHTML;
 document.querySelector("#orderCommit").onclick = function() {
-    WeixinJSBridge.invoke(
-      'getBrandWCPayRequest', {{jsapi_res}},
-      function(res) {
-          alert(JSON.stringify(res));
-          // window.location = "/orderlist.html";
-      }
-  );
-}
+
+     WeixinJSBridge.invoke(
+       'getBrandWCPayRequest', JSON.parse(jsapi_res),
+       function(res) {
+           alert(JSON.stringify(res));
+           // window.location = "/orderlist.html";
+       }
+   );
+ }
 </script>
 </body>
 </html>

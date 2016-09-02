@@ -166,7 +166,9 @@ submit.onclick = function() {
                         //         alert(JSON.stringify(res));
                         //     }
                         // );
-                        window.location = "/order/list?purchase_id=1"
+                        alert('预下订单成功');
+                        console.log("预下订单成功")
+                      window.location = "/order/list?out_trade_no="+resp.res.out_trade_no;
                     }
 
                 }
