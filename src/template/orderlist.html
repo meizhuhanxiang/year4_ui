@@ -63,8 +63,11 @@ document.querySelector("#orderCommit").onclick = function() {
      WeixinJSBridge.invoke(
        'getBrandWCPayRequest', JSON.parse(jsapi_res),
        function(res) {
-           alert(JSON.stringify(res));
-           // window.location = "/orderlist.html";
+            if(res.err_msg=="get_brand_wcpay_request:ok"){
+                WeixinJSBridge.invoke('closeWindow',{},function(res){});
+            }else{
+                alert(JSON.stringify(res));
+            }
        }
    );
  }

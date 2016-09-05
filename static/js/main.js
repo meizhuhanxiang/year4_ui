@@ -156,19 +156,14 @@ submit.onclick = function() {
                     "purchase_id": 1,
                     "phone": phone.value,
                     "name": userName.value,
-                    "wechat_n": weixin.value
+                    "wechat_no": weixin.value
                 },
                 success: function(resp) {
                     if (resp.code == "0") {
-                        // WeixinJSBridge.invoke(
-                        //     'getBrandWCPayRequest', resp.res,
-                        //     function(res) {
-                        //         alert(JSON.stringify(res));
-                        //     }
-                        // );
-                        alert('预下订单成功');
                         console.log("预下订单成功")
                       window.location = "/order/list?out_trade_no="+resp.res.out_trade_no;
+                    }else{
+                        alert(resp.msg);
                     }
 
                 }
