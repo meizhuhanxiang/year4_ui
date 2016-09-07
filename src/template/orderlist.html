@@ -55,7 +55,8 @@
     <a href="javascript:;" class="btn btn-white" id="orderCommit">提交</a>
 </div>
 </div>
-
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="/static/js/main.js"></script>
 <script>
 var jsapi_res = document.querySelector("#jsapi_res").innerHTML;
 
@@ -65,8 +66,10 @@ document.querySelector("#orderCommit").onclick = function() {
        function(res) {
             if(res.err_msg=="get_brand_wcpay_request:ok"){
                 WeixinJSBridge.invoke('closeWindow',{},function(res){});
-            }else{
-                alert(JSON.stringify(res));
+            }else if (res.err_msg=="get_brand_wcpay_request:cancel"){
+                alert("支付被取消");
+            } else {
+                alert("支付失败");
             }
        }
    );

@@ -52,5 +52,16 @@
     <a href="/orderlist.html" class="btn btn-confirm" id="submit">提交</a>
 </div>
 <script src="/statuc/js/main.js"></script>
+<script>
+window.alert = function(name){
+ var iframe = document.createElement("IFRAME");
+iframe.style.display="none";
+iframe.setAttribute("src", 'data:text/plain,');
+document.documentElement.appendChild(iframe);
+window.frames[0].window.alert(name);
+iframe.parentNode.removeChild(iframe);
+}
+</script>
 </body>
+
 </html>

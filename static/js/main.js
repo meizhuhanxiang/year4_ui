@@ -44,6 +44,18 @@ reqwest({
                     alert(JSON.stringify(res));
                 }
             });
+            wx.onMenuShareTimeline({
+                title: 'WIB官方报名通道，赶紧的走起！！！',
+                desc: '中国经典大赛强势回归，在线直接报名！！！',
+                link: res.link,
+                imgUrl: 'http://www.weiyubb.cn/static/img/logo.png',
+                trigger: function(res) {},
+                success: function(res) {},
+                cancel: function(res) {},
+                fail: function(res) {
+                    alert(JSON.stringify(res));
+                }
+            });
         })
     }
 })
