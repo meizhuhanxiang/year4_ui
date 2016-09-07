@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <title></title>
+    <script>
+        document.addEventListener('DOMContentLoaded',function(){
+         var docEl = window.document.documentElement;
+         var width = docEl.getBoundingClientRect().width;
+         var rootSize = width/1080*100;
+         docEl.style.fontSize = rootSize + 'px';
+       },false);
+    </script>
+    <link rel="stylesheet" href="/static/css/main.css">
+</head>
+<body>
+{%if code!= 0 %}
+<div>{{msg}}</div>
+{% else %}
+{% if res['type']=='signup' %}
+
+<div class="bg-normal">
+   <div class="list-row">
+       <p>参赛信息</p>
+   </div>
+   <div class="list-row">
+    <ul>
+        <li>
+            <span class="row-label">参赛姓名：</span>
+            <span class="row-item">{{res["name"]}}</span>
+        </li>
+        <li>
+            <span class="row-label">报名舞种：</span>
+            <span class="row-item">{{res["kinds"]}}</span>
+        </li>
+        <li>
+            <span class="row-label">选手电话：</span>
+            <span class="row-item">{{res["phone"]}}</span>
+        </li>
+        <li>
+            <span class="row-label">选手微信号：</span>
+            <span class="row-item">{{res["wechat_no"]}}</span>
+        </li>
+    </ul>
+
+   </div>
+</div>
+{% else %}
+<div class="wrapper">
+    <div class="header">
+    <a href="/purchase/kinds?purchase_id=1"><img src="/static/img/back.png" alt=""></a>
+    订单详情
+  </div>
+</div>
+<div class="bg-normal">
+
+   <div class="list-row">
+       <p>参赛信息</p>
+   </div>
+   <div class="list-row">
+    <ul>
+        <li>
+            <span class="row-label">参赛姓名：</span>
+            <span class="row-item">{{res["name"]}}</span>
+        </li>
+        <li>
+            <span class="row-label">报名舞种：</span>
+            <span class="row-item">{{res["kinds"]}}</span>
+        </li>
+        <li>
+            <span class="row-label">选手电话：</span>
+            <span class="row-item">{{res["phone"]}}</span>
+        </li>
+        <li>
+            <span class="row-label">选手微信号：</span>
+            <span class="row-item">{{res["wechat_no"]}}</span>
+        </li>
+    </ul>
+
+   </div>
+
+   <div class="list-row">
+       <span>报名费</span> <span class="fr">{{res["total_fee"]}}</span>
+   </div>
+
+</div>
+{% end %}
+{% end %}
+</body>
+
+</html>

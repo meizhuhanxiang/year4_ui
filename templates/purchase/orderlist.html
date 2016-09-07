@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="/static/css/main.css">
 </head>
 <body>
+{%if code!= 0 %}
+<div>{{msg}}</div>
+{% else %}
 <div class="wrapper">
     <div class="header">
     <a href="/purchase/kinds?purchase_id=1"><img src="/static/img/back.png" alt=""></a>
@@ -22,7 +25,7 @@
     订单详情
   </div>
 </div>
-<div id="jsapi_res" style="display:none">{{jsapi_res}}</div>
+<div id="jsapi_res" style="display:none">{{res["jsapi_res"]}}</div>
 <div class="bg-normal">
 
    <div class="list-row">
@@ -32,26 +35,26 @@
     <ul>
         <li>
             <span class="row-label">参赛姓名：</span>
-            <span class="row-item">{{name}}</span>
+            <span class="row-item">{{res["name"]}}</span>
         </li>
         <li>
             <span class="row-label">报名舞种：</span>
-            <span class="row-item">{{kinds}}</span>
+            <span class="row-item">{{res["kinds"]}}</span>
         </li>
         <li>
             <span class="row-label">选手电话：</span>
-            <span class="row-item">{{phone}}</span>
+            <span class="row-item">{{res["phone"]}}</span>
         </li>
         <li>
             <span class="row-label">选手微信号：</span>
-            <span class="row-item">{{wechat_no}}</span>
+            <span class="row-item">{{res["wechat_no"]}}</span>
         </li>
     </ul>
 
    </div>
 
    <div class="list-row">
-       <span>已付报名费</span> <span class="fr">{{total_fee}}</span>
+       <span>应付报名费</span> <span class="fr">{{res["total_fee"]}}</span>
    </div>
    <div class="list-row">
        <p>
@@ -76,10 +79,10 @@
 <script src="/static/js/main.js"></script>
 <script>
 var jsapi_res = document.querySelector("#jsapi_res").innerHTML;
-
+console.log(jsapi_res);
 document.querySelector("#orderCommit").onclick = function() {
      WeixinJSBridge.invoke(
-       'getBrandWCPayRequest', JSON.parse(jsapi_res),
+     'getBrandWCPayRequest', JSON.parse(document.querySelector("#jsapi_res").innerHTML),
        function(res) {
             if(res.err_msg=="get_brand_wcpay_request:ok"){
                 WeixinJSBridge.invoke('closeWindow',{},function(res){});
@@ -92,6 +95,7 @@ document.querySelector("#orderCommit").onclick = function() {
    );
  }
 </script>
+{% end %}
 <script>
 window.alert = function(name){
  var iframe = document.createElement("IFRAME");
