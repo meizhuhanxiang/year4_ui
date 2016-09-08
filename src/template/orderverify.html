@@ -15,23 +15,6 @@
     <link rel="stylesheet" href="/static/css/main.css">
 </head>
 <body>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-    <title></title>
-    <script>
-        document.addEventListener('DOMContentLoaded',function(){
-         var docEl = window.document.documentElement;
-         var width = docEl.getBoundingClientRect().width;
-         var rootSize = width/1080*100;
-         docEl.style.fontSize = rootSize + 'px';
-       },false);
-    </script>
-    <link rel="stylesheet" href="/static/css/main.css">
-</head>
-<body>
 {%if code!= 0 %}
 <div>{{msg}}</div>
 {% else %}
@@ -127,19 +110,6 @@
 
 {% end %}
 
-</body>
-
-</html>
-<script>
-window.alert = function(name){
- var iframe = document.createElement("IFRAME");
-iframe.style.display="none";
-iframe.setAttribute("src", 'data:text/plain,');
-document.documentElement.appendChild(iframe);
-window.frames[0].window.alert(name);
-iframe.parentNode.removeChild(iframe);
-}
-</script>
 </body>
 
 </html>

@@ -1,0 +1,51 @@
+{%if code!= 0 %}
+<div>{{msg}}</div>
+{% else %}
+<div class="bg-normal">
+
+   <div class="list-row">
+       <p>参赛信息</p>
+   </div>
+   <div class="list-row">
+    <ul>
+        <li>
+            <span class="row-label">参赛姓名：</span>
+            <span class="row-item">{{res["name"]}}</span>
+        </li>
+        <li>
+            <span class="row-label">报名舞种：</span>
+            <span class="row-item">{{res["kinds"]}}</span>
+        </li>
+        <li>
+            <span class="row-label">选手电话：</span>
+            <span class="row-item">{{res["phone"]}}</span>
+        </li>
+        {%if res["wechat_no"]!= "" %}
+        <li>
+            <span class="row-label">选手微信号：</span>
+            <span class="row-item">{{res["wechat_no"]}}</span>
+        </li>
+        {% else %}
+    </ul>
+
+   </div>
+
+   <div class="list-row">
+       <span>已经付报名费：</span> <span class="fr">{{res["total_fee"]}}</span>
+   </div>
+   <div class="list-row">
+       <p>
+           参赛选手须知：
+       </p>
+       <p>
+           1. 支付成功后到比赛现场直接使用本人手机扫描二维码即可进场
+       </p>
+       <p>
+           2. 本赛事暂不支持退款
+       </p>
+       <p>
+           3. 比赛开始时间：2016.9.10上午10点  119文化剧场
+       </p>
+   </div>
+</div>
+{% end %}
