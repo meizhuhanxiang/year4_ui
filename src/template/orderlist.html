@@ -9,6 +9,7 @@
   </div>
 </div>
 <div id="jsapi_res" style="display:none">{{res["jsapi_res"]}}</div>
+<div id="out_trade" style="display:none">{{res["out_trade_no"]}}</div>
 <div class="bg-normal">
 
    <div class="list-row">
@@ -61,13 +62,34 @@
 <script src="/static/js/main.js"></script>
 <script>
 var jsapi_res = document.querySelector("#jsapi_res").innerHTML;
+var out_trade_no = document.querySelector("#out_trade").innerHTML;
 console.log(jsapi_res);
+console.log(out_trade_no);
+
+
 document.querySelector("#orderCommit").onclick = function() {
      WeixinJSBridge.invoke(
      'getBrandWCPayRequest', JSON.parse(document.querySelector("#jsapi_res").innerHTML),
        function(res) {
             if(res.err_msg=="get_brand_wcpay_request:ok"){
+                reqwest({
+                    url: '/order/paysuccess',
+                    type: 'json',
+                    method: 'get',
+                    data: {
+                        "out_trade_no": out_trade_no
+                    },
+                    success: function(resp) {
+                        if (resp.code == "0") {
+                            console.log("预下订单成功")
+                        } else {
+                            alert(resp.msg);
+                        }
+                                                        
+                    }
+                })
                 WeixinJSBridge.invoke('closeWindow',{},function(res){});
+
             }else if (res.err_msg=="get_brand_wcpay_request:cancel"){
                 alert("支付被取消");
             } else {
