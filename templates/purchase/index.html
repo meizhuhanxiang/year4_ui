@@ -16,17 +16,37 @@
 </head>
 <body>
 
+{% if res["finished"] %}
 <div id="formbackground" style="width:100%;">
 <img src="/static/img/bg.png" height="100%" width="100%"/>
 </div>
-{% if res["finished"] %}
 <div class="button-wrapper">
     <a href="javascript:;" class="btn btn-confirm" style="background:#d6d6d6; color:#d43081">活动已结束</a>
 </div>
 {% else %}
-<div class="button-wrapper">
+{% if res['new'] %}
+<div id="formbackground" style="width:100%;">
+<img src="/static/img/bg.png" height="100%" width="100%"/>
+</div>
+<div class="button-wrapper"> 
     <a href="/purchase/kinds?purchase_id=1" class="btn btn-confirm">报名</a>
 </div>
+
+{% else %}
+<div class="wrapper">
+    <div class="logo_show">
+        <img src="/static/img/logo.png" alt="">
+    </div>
+    <div class="center">请长按下图的二维码关注“帮帮预售”</div>
+    <div class="center">进入公共账号后即可进行WIB报名</div>
+    <div class="logo_code_show">
+        <img src="/static/img/code.png" alt="">
+    </div>
+    <div class="center">微信搜索：帮帮预售</div>
+
+</div>
+                
+{%end%}
 {%end%}
 
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
