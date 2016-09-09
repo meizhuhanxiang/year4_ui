@@ -5,7 +5,7 @@ reqwest({
     contentType: 'application/json',
     data: {
     },
-    error: function (err) { 
+    error: function (err) {
         console.log(JSON.parse(err.response))
     },
     success: function(data) {
@@ -27,10 +27,10 @@ reqwest({
         wx && wx.config(config);
         wx && wx.ready(function() {
             wx.onMenuShareAppMessage({
-                title: 'WIB官方报名通道，赶紧的走起！！！',
+                title: 'WIB官方参赛报名通道，赶紧走起！！',
                 desc: '中国经典大赛强势回归，在线直接报名！！！',
                 link: res.link,
-                imgUrl: location.origin + '/static/img/logo.png',
+                imgUrl: 'http://www.weiyubb.cn/static/img/logo.png',
                 trigger: function(res) {},
                 success: function(res) {},
                 cancel: function(res) {},
@@ -39,10 +39,10 @@ reqwest({
                 }
             });
             wx.onMenuShareTimeline({
-                title: 'WIB官方报名通道，赶紧的走起！！！',
+                title: 'WIB官方参赛报名通道，赶紧走起！！',
                 desc: '中国经典大赛强势回归，在线直接报名！！！',
                 link: res.link,
-                imgUrl: location.origin + '/static/img/logo.png',
+                imgUrl: 'http://www.weiyubb.cn/static/img/logo.png',
                 trigger: function(res) {},
                 success: function(res) {},
                 cancel: function(res) {},
