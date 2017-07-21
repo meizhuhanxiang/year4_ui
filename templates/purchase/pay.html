@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <title>G-STEPS ST公演入场券！限量开抢啦！</title>
+    <style type="text/css">
+        html, body {
+            height: 100%;
+        }
+    </style>
+    <script src="/static/js/jquery.js"></script>
+    <!-- // <script src="/static/js/main.js"></script> -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var docEl = window.document.documentElement;
+            var width = docEl.getBoundingClientRect().width;
+            var rootSize = width / 1080 * 100;
+            docEl.style.fontSize = rootSize + 'px';
+        }, false);
+        //获取统一支付订单参数
+        function pay() {
+            var price = $('#pay-price').data('price');
+            var uni_data = '';
+            order_args = {"price": price}  //订单id列表，及地址id
+            $.ajax({
+                type: "POST",
+                url: "/api/purchase/pay", // 点击支付按钮调用该接口，添加订单并获取支付参数
+                data: JSON.stringify(order_args),
+                dataType: "json",
+                async: false,
+                success: function (data) {
+                    if (data.code != 0) {
+                        alert(data.msg);
+                        if (data.code == 30005) { //用户未登陆, 直接跳转到登陆认证接口，并带上当前的url,认证登陆完毕再跳转回来
+                            window.location.href = "http://preseller.gsteps.cn/api/user/oauth" + "?current_url=" + escape(window.location.href)
+                        }
+                    } else {
+                        WeixinJSBridge.invoke(
+                                'getBrandWCPayRequest', data.res.appapi_params,
+                                function (res) {
+                                    if (res.err_msg == "get_brand_wcpay_request:ok") {
+                                        alert('支付成功');
+                                        window.location.href = '/api/purchase/index'
+                                    }
+                                    if (res.err_msg == "get_brand_wcpay_request:cancel") {
+                                        alert('支付被取消');
+                                    }
+                                    if (res.err_msg == "get_brand_wcpay_request:fail") {
+                                        alert(JSON.stringify(res))
+                                    }
+                                }
+                        );
+                    }
+                }
+            });
+        }
+    </script>
+    <link rel="stylesheet" href="/static/css/main.css">
+</head>
+<div class="bg-normal">
+
+   <div class="list-row">
+       <p>确认订单信息</p>
+   </div>
+   <div class="list-row">
+    <ul>
+        <li>
+            <span class="row-label">收票者：</span>
+            <span class="row-item">{{name}}</span>
+        </li>
+        <li>
+            <span class="row-label">电话：</span>
+            <span class="row-item">{{phone}}</span>
+        </li>
+        <li>
+            <span class="row-label">地址：</span>
+            <span class="row-item">{{address}}</span>
+        </li>
+    </ul>
+
+   </div>
+
+   <div class="list-row">
+       <span style="color:red">应付折后</span> <span id='pay-price' class="fr" data-price='{{price}}'>¥{{price}}</span>
+   </div>
+   <div class="list-row">
+       <p>
+           入场须知
+       </p>
+
+        <p>1. 支付成功后，主办方对根据联系方式与您联系，给予门票</p>
+        <p>2. 活动地点在798剧场</p>
+        <p>3. 活动时间为2017年7月29日晚7点</p>
+        <p>4. 本次活动不接受退款或者转让</p>
+        <p>5. 本次活动解释权归G-STEPS CREW官方所有</p>
+   </div>
+
+<div class="button-wrapper button-wrapper-static" style="margin-top: 0.7rem;">
+    <a href="javascript:;" class="btn btn-white" id="orderCommit" onclick="pay();" style="background:#45688b;color:white">马上支付</a>
+</div>
+</div>
+<!-- <input type="button" name="pay" value="确定支付" onclick="pay();"/> -->
+</body>
+
+</html>
