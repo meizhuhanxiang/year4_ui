@@ -83,10 +83,10 @@
                 <img src="/static/img/bottom-slide.png" class="ticket gsteps_person_last" alt="">
                 <div class="exchange-wrapper">
                     {% if status == 'cheer_done'%}
-                      <p>恭喜您已经成功兑换优惠资格</p>
+                      <p>恭喜您已经成功兑换</p>
                     {% elif  status == 'cheer_payed' %}
                       <!-- <p>您已成功兑换,出示此页面即可入场</p> -->
-                      <p>恭喜您已经成功兑换优惠资格</p>
+                      <p>恭喜您已经成功兑换</p>
                     {% end %}
                 </div>
             </div>
@@ -138,10 +138,10 @@
 
                 <div class="exchange-wrapper">
                     {% if  status == 'cheer_payed' %}
-                      <p>恭喜您已经成功兑换优惠资格</p>
+                      <p>恭喜您已经成功兑换</p>
                       <span class="remain_cheer_num" style='display: none'>{{ remain_cheer_num }}</span>
                     {% else %}
-                      <p>还差<span class="remain_cheer_num">{{ remain_cheer_num }}</span>人点赞即可1折购买入场券</p>
+                      <p>还差<span class="remain_cheer_num">{{ remain_cheer_num }}</span>人加油即可</p>
                     {% end %}
                     
                 </div>
@@ -197,7 +197,7 @@
   {% else %}
 
     <div class="button-wrapper" style="margin-top: 10%">
-        <button class="btn btn-common btn-help">让盆友帮忙兑票</button>
+        <button class="btn btn-common btn-help"><img src="/static/img/pengyou-btn.png" style="width: 32%;" alt=""></button>
         <p class="want-tips" style="display:none"><img src="/static/img/share-text.png" style="width: 80%;" alt=""></p>
         <!-- <p class="want-tips" style="display:none">发送给盆友的方法：点击右上角，你懂的!</p> -->
     </div>

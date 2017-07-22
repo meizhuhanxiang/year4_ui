@@ -83,7 +83,7 @@
             <div class="remain_num">
                 <img src="/static/img/gsteps_person_last.png" class="ticket gsteps_person_last" alt="">
                 <div class="exchange-wrapper">
-                    <p>您的朋友已成功兑换优惠资格</p>
+                    <p>您的朋友已成功兑换</p>
                 </div>
             </div>
         </div>
@@ -132,7 +132,7 @@
             <div class="remain_num">
                 <img src="/static/img/gsteps_person_last.png" class="ticket gsteps_person_last" alt="">
                 <div class="exchange-wrapper">
-                    <p>你的盆友还差<span class="remain_cheer_num">{{ remain_cheer_num }}</span>人加油即可兑换</p>
+                    <p>你的盆友还差<span class="remain_cheer_num">{{ remain_cheer_num }}</span>人加油即可</p>
                 </div>
             </div>
         </div>
@@ -145,13 +145,11 @@
 <div class="button-wrapper">
     {% if remain_cheer_num<=0%}
         <a href="/api/purchase/activity" class="btn btn-common btn-help">我也要公演入场劵</a>
-        <!-- <p class="want-tips" style="display:none">发送给盆友的方法：点击右上角分享，你懂的!</p> -->
     {% elif  remain_cheer_num<=30 %}
          <a class="btn btn-common btn-cheerup" href="javascript:;" onclick="cheer('{{ union_id }}', '{{ target_union_id }}')">
             <img src="/static/img/cheer.png" alt="">
         </a>
          <a href="/api/purchase/activity" class="btn btn-common btn-help">我也要公演入场劵</a>
-        <!-- <p class="want-tips" style="display:none">发送给盆友的方法：点击右上角分享，你懂的!</p> -->
     {% end%}
 
 
@@ -290,7 +288,7 @@ $.ajax({
                     layer.open({
                         title: [
                         'G-STEPS公演入场票兑换',
-                        'background-color:#182f52; color:#fff;'
+                        'background-color:#d3242e; color:#fff;'
                         ],
                         content:'<h3 class="layer-con-title">恭喜您已经成功加油</h3><p>帮助您的朋友在兑票的道路上迈出重要一步！</p>',
                         btn:['确定']
