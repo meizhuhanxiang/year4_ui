@@ -40,18 +40,25 @@
     <a href="javascript:;" class="btn btn-finish">抱歉，活动已结束</a>
 </div>
 {% else %}
-  <div class="button-wrapper">
-    <a href="/api/purchase/index" class="btn btn-common">一折抢购入场券</a>
- </div>
+  {% if discot == 'false'%}
+     <div class="button-wrapper">
+       <a href="javascript:;" class="btn btn-common">已成功购买</a>
+    </div>
+  {% else %}
+      <div class="button-wrapper">
+        <a href="/api/purchase/index" class="btn btn-common">一折抢购入场券</a>
+     </div>
 
-<div class="button-wrapper">
-    <a href="/api/purchase/info" class="btn btn-common">我是土豪，直接买</a>
-</div>
+    <div class="button-wrapper">
+        <a href="/api/purchase/info" class="btn btn-common">我是土豪，直接买</a>
+    </div>
+  {% end %}
+  
 {% end %}
 
 
 
-
+<!-- discot {{discot}} -->
 <!-- <div class="footer">
     <a href="#">有问题，点这里</a>
 </div> -->

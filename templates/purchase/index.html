@@ -85,7 +85,8 @@
                     {% if status == 'cheer_done'%}
                       <p>恭喜您已经成功兑换优惠资格</p>
                     {% elif  status == 'cheer_payed' %}
-                      <p>您已成功兑换,出示此页面即可入场</p>
+                      <!-- <p>您已成功兑换,出示此页面即可入场</p> -->
+                      <p>恭喜您已经成功兑换优惠资格</p>
                     {% end %}
                 </div>
             </div>
@@ -137,7 +138,7 @@
 
                 <div class="exchange-wrapper">
                     {% if  status == 'cheer_payed' %}
-                      <p>您已成功兑换,出示此页面即可入场</p>
+                      <p>恭喜您已经成功兑换优惠资格</p>
                       <span class="remain_cheer_num" style='display: none'>{{ remain_cheer_num }}</span>
                     {% else %}
                       <p>还差<span class="remain_cheer_num">{{ remain_cheer_num }}</span>人点赞即可1折购买入场券</p>
@@ -153,7 +154,7 @@
 </div>
 
  <!-- 剩余加油个数个数:{{remain_cheer_num}} -->
-
+ <!-- status:{{status}} -->
 {% if remain_cheer_num<=0%}
 {% if status == 'cheer_done'%}
   <div class="button-wrapper" style="margin-top: 10%">
@@ -161,13 +162,15 @@
   </div>
   <<!-- p>恭喜您已经成功兑换优惠资格</p> -->
 {% elif  status == 'cheer_payed' %}
-  <div class="success-wrapper">
+  <!-- <div class="success-wrapper">
       <h3>注意：</h3>
       <p>入场票仅代表拥有入场的权限</p>
       <p>也就是说您得尽量去早一些排队入场</p>
       <p>否则太晚，座位都被坐完，您就可能只能站着看</p>
+  </div> -->
+  <div class="button-wrapper" style="margin-top: 10%">
+    <a href="javascript:;" class="btn btn-common btn-want">已成功购买</a>
   </div>
-
   <h3 class="ticket-title">入场时间：6月17日晚19:30</h3>
   <h3 class="ticket-title">演出地点：798剧场</h3>
 {% end %}
@@ -180,13 +183,15 @@
 {% elif  remain_cheer_num<=30 %}
 <!--已经被加油但是还未集齐的状态 -->
   {% if status == 'cheer_payed'%}
-    <div class="success-wrapper">
+    <!-- <div class="success-wrapper">
         <h3>注意：</h3>
         <p>入场票仅代表拥有入场的权限</p>
         <p>也就是说您得尽量去早一些排队入场</p>
         <p>否则太晚，座位都被坐完，您就可能只能站着看</p>
+    </div> -->
+    <div class="button-wrapper" style="margin-top: 10%">
+      <a href="javascript:;" class="btn btn-common btn-want">已成功购买</a>
     </div>
-
     <h3 class="ticket-title">入场时间：6月17日晚19:30</h3>
     <h3 class="ticket-title">演出地点：798剧场</h3>
   {% else %}

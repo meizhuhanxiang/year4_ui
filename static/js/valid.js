@@ -156,7 +156,15 @@ if (submit) {
                         // window.location = "/order/list?out_trade_no=" + resp.res.out_trade_no;
                         window.location = "/api/purchase/signup?name="+ userName.value + '&phone=' + phone.value + '&address=' + address.value
                     } else {
-                        alert(resp.msg);
+                        // alert();
+                        layer.open({
+                            title: [
+                            'G-STEPS公演入场票兑换',
+                            'background-color:#d3242e; color:#fff;'
+                            ],
+                            content:resp.msg,
+                            btn:['确定']
+                        })
                     }
 
                 }
