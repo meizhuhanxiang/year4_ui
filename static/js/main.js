@@ -60,7 +60,7 @@
   timer = setInterval(count, 1000);
 }
 
-  counter('07/29/2017 19:30:00 GMT-0400 (EDT)');
+  counter('07/29/2017 7:00:00 GMT-0400 (EDT)');
   });
 
 
