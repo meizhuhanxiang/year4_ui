@@ -9,14 +9,24 @@
     <link rel="stylesheet" href="/static/css/count.css">
     <link rel="stylesheet" href="/static/css/layer.css">
 </head>
+<style type="text/css">
+    body {
+        background: url('/static/img/qiangpiaobg.png') no-repeat;
+        /*background-position: center center;*/
+        background-size: cover;
+    }
+</style>
 <body>
 <img src="/static/img/logo.png" style="width:0px; height:0px; overflow:hidden; position: absolute;"  alt="">
 
-<div id="formbackground" style="position:absolute; width:100%; height:100%; z-index:-1">
-<img src="/static/img/bg.png" height="100%" width="100%"/>
+<!-- <div id="formbackground" style="width:100%; height:100%; z-index:-1;background: #f4f4f4">
+    <img src="/static/img/piaobg.png" height="100%" width="100%"/>
+</div> -->
+<div class='piao-text'>
+    <p><img src="/static/img/G-STEPSm.png" class='img-steps'> <span class='five-font'>五周年公演</span></p>
+    <p>集赞抢1折入场券</p>
 </div>
-
-<div class="video-link">
+<!-- <div class="video-link">
     <a href="/api/purchase/activity"><img src="/static/img/video.png" alt=""></a>
 </div>
 
@@ -34,122 +44,132 @@
     <span class="hours"></span>
     <span class="minutes"></span>
     <span class="seconds"></span>
-</div>
-
-<div class="ticket-wrapper">
-    <div class="ticket_img_wrapper">
-        {% if remain_cheer_num<=0%}
-        <img src="/static/img/heart-bg.png" class="ticket" alt="">
-        <div class="float_area">
-            <img src="/static/img/top-slide.png" class="ticket gsteps_six" alt="">
-            <ul class="wrapper_heart">
-                <li class="heart">
-                    <image class="image_heart" src="/static/img/choose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/choose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/choose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/choose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/choose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/choose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/choose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/choose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/choose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/choose_heart.png"></image>
-                </li>
-                <li class="heart">
-                    <image class="image_heart" src="/static/img/choose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/choose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/choose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/choose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/choose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/choose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/choose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/choose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/choose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/choose_heart.png"></image>
-                </li>
-                <li class="heart">
-                    <image class="image_heart" src="/static/img/choose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/choose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/choose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/choose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/choose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/choose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/choose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/choose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/choose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/choose_heart.png"></image>
-                </li>
-            </ul>
-            <div class="remain_num">
-                <img src="/static/img/gsteps_person_last.png" class="ticket gsteps_person_last" alt="">
-                <div class="exchange-wrapper">
-                    <p>您的朋友已成功兑换</p>
+</div> -->
+<div class='nextbg'>
+    {% if remain_cheer_num<=0%}
+        <p class='cheer-tip successed'>您的好友已加满油</p>
+    {% else %}
+        <p class='cheer-tip'>已有 <span class='cheer-num'>{{30-remain_cheer_num}}</span>个赞</p>
+    {% end%}
+    
+    <div class="ticket-wrapper">
+        <div class="ticket_img_wrapper">
+            {% if remain_cheer_num<=0%}
+            <div class="float_area">
+                <ul class="wrapper_heart">
+                    <li class="heart">
+                        <image class="image_heart" src="/static/img/choose_heart.png"></image>
+                        <image class="image_heart" src="/static/img/choose_heart.png"></image>
+                        <image class="image_heart" src="/static/img/choose_heart.png"></image>
+                        <image class="image_heart" src="/static/img/choose_heart.png"></image>
+                        <image class="image_heart" src="/static/img/choose_heart.png"></image>
+                    </li>
+                    <li class="heart">
+                        <image class="image_heart" src="/static/img/choose_heart.png"></image>
+                        <image class="image_heart" src="/static/img/choose_heart.png"></image>
+                        <image class="image_heart" src="/static/img/choose_heart.png"></image>
+                        <image class="image_heart" src="/static/img/choose_heart.png"></image>
+                        <image class="image_heart" src="/static/img/choose_heart.png"></image>
+                    </li>
+                    <li class="heart">
+                        <image class="image_heart" src="/static/img/choose_heart.png"></image>
+                        <image class="image_heart" src="/static/img/choose_heart.png"></image>
+                        <image class="image_heart" src="/static/img/choose_heart.png"></image>
+                        <image class="image_heart" src="/static/img/choose_heart.png"></image>
+                        <image class="image_heart" src="/static/img/choose_heart.png"></image>
+                    </li>
+                    <li class="heart">
+                        <image class="image_heart" src="/static/img/choose_heart.png"></image>
+                        <image class="image_heart" src="/static/img/choose_heart.png"></image>
+                        <image class="image_heart" src="/static/img/choose_heart.png"></image>
+                        <image class="image_heart" src="/static/img/choose_heart.png"></image>
+                        <image class="image_heart" src="/static/img/choose_heart.png"></image>
+                    </li>
+                    <li class="heart">
+                        <image class="image_heart" src="/static/img/choose_heart.png"></image>
+                        <image class="image_heart" src="/static/img/choose_heart.png"></image>
+                        <image class="image_heart" src="/static/img/choose_heart.png"></image>
+                        <image class="image_heart" src="/static/img/choose_heart.png"></image>
+                        <image class="image_heart" src="/static/img/choose_heart.png"></image>
+                    </li>
+                </ul>
+                <div class="remain_num">
+                    <!-- <img src="/static/img/gsteps_person_last.png" class="ticket gsteps_person_last" alt=""> -->
+                    <!-- <div class="exchange-wrapper">
+                        <p>您的朋友已成功兑换</p>
+                    </div> -->
                 </div>
             </div>
-        </div>
-        {% elif  remain_cheer_num<=30 %}
-        <img src="/static/img/heart-bg.png" class="ticket" alt="">
-        <div class="float_area">
-            <img src="/static/img/top-slide.png" class="ticket gsteps_six" alt="">
-            <ul class="wrapper_heart">
-                <li class="heart">
-                    <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
-                </li>
-                <li class="heart">
-                    <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
-                </li>
-                <li class="heart">
-                    <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
-                    <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
-                </li>
-            </ul>
-            <div class="remain_num">
-                <img src="/static/img/gsteps_person_last.png" class="ticket gsteps_person_last" alt="">
-                <div class="exchange-wrapper">
-                    <p>你的盆友还差<span class="remain_cheer_num">{{ remain_cheer_num }}</span>人加油即可</p>
+            {% elif  remain_cheer_num<=30 %}
+            <div class="float_area">
+                <ul class="wrapper_heart">
+                    <li class="heart">
+                        <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
+                        <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
+                        <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
+                        <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
+                        <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
+                        <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
+                    </li>
+                    <li class="heart">
+                        <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
+                        <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
+                        <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
+                        <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
+                        <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
+                        <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
+                    </li>
+                    <li class="heart">
+                        <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
+                        <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
+                        <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
+                        <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
+                        <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
+                        <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
+                    </li>
+                    <li class="heart">
+                        <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
+                        <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
+                        <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
+                        <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
+                        <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
+                        <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
+                    </li>
+                    <li class="heart">
+                        <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
+                        <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
+                        <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
+                        <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
+                        <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
+                        <image class="image_heart" src="/static/img/unchoose_heart.png"></image>
+                    </li>
+                </ul>
+                <div class="remain_num">
+                    <!-- <img src="/static/img/gsteps_person_last.png" class="ticket gsteps_person_last" alt=""> -->
+                    <div class="exchange-wrapper">
+                        <p style='display: none'>你的盆友还差<span class="remain_cheer_num">{{ remain_cheer_num }}</span>人加油即可</p>
+                    </div>
                 </div>
             </div>
+            {% end%}
+
+
         </div>
-        {% end%}
-
-
     </div>
 </div>
 
 <div class="button-wrapper">
     {% if remain_cheer_num<=0%}
-        <a href="/api/purchase/activity" class="btn btn-common btn-help">我也要公演入场劵</a>
+        <a href="/api/purchase/activity" class="btn btn-common btn-help">
+            <img src="/static/img/want.png">
+        </a>
     {% elif  remain_cheer_num<=30 %}
          <a class="btn btn-common btn-cheerup" href="javascript:;" onclick="cheer('{{ union_id }}', '{{ target_union_id }}')">
             <img src="/static/img/cheer.png" alt="">
         </a>
-         <a href="/api/purchase/activity" class="btn btn-common btn-help">我也要公演入场劵</a>
+         <a href="/api/purchase/activity" class="btn btn-common btn-help">
+             <img src="/static/img/want.png">
+         </a>
     {% end%}
 
 
@@ -297,10 +317,12 @@ $.ajax({
                     var num = 30 - res.res.target_remain_cheer_num;
                     // num = 0
                     if(num == 0) {
-                        $(".exchange-wrapper p").html("您的朋友已成功兑换优惠资格");
+                        $('.cheer-tip').addClass('successed').html('您的好友已加满油')
+                        // $(".exchange-wrapper p").html("您的朋友已成功兑换优惠资格");
                     } else {
                         image_heart.eq(num-1).attr("src", "/static/img/choose_heart.png");
                         $(".remain_cheer_num").text(res.res.target_remain_cheer_num)
+                        $(".cheer-num").text(res.res.target_remain_cheer_num)
                         // zan = layer.open({
                         // content:"<div class='zan_wrapper'><img src='/static/img/zan-success1.png' style='width: 100%'></img><img src='/static/img/make_sure.png' class='zan_make'></img>"
                         // })

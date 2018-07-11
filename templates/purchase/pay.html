@@ -3,10 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
-    <title>G-STEPS ST公演入场券！长大之后的一场玩耍！</title>
+    <title>订单详情</title>
     <style type="text/css">
         html, body {
-            height: 100%;
+            /*height: 100%;*/
+        }
+        .order-detail {
+            /* 确认订单详情: */
+            font-family: PingFangSC-Regular;
+            font-size: 17px;
+            color: #BC0000;
+            letter-spacing: 0;
+            text-align: center;
+        }
+        .order-wrapper {
+            width: 70%;
+            margin: 0 auto;
+        }
+        .order-info {
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+            
+            /*margin-left: 15%;*/
+            margin-top: 18px;
+            margin-bottom: 16px;
+        }
+        .order-info .info-item {
+            flex-grow: 1;
+            /*padding-left: 30px;*/
+        }
+        .info-item .item-title {
+            /* 原价:: */
+            font-family: PingFangSC-Regular;
+            font-size: 15px;
+            color: #5C5C5C;
+            letter-spacing: 0;
+            margin-bottom: 5px;
+        }
+        .info-item .content {
+            height: 32px;
+            line-height: 32px;
+        }
+        .info-item .item-content {
+            /* 550元: */
+            font-family: PingFangSC-Regular;
+            font-size: 30px;
+            color: #E9431A;
+            letter-spacing: 0;
+            text-align: left;
+        }
+        .order-tip {
+            /* 公演活动地点：望京浦项中心: */
+            font-family: PingFangSC-Regular;
+            font-size: 15px;
+            color: #5C5C5C;
+            letter-spacing: 0;
+            text-align: center;
+            margin-bottom: 8px;
+            text-align: left;
+        }
+        body {
+            background: url('/static/img/qiangpiaobg.png') no-repeat;
+            /*background-position: center center;*/
+            background-size: cover;
         }
     </style>
     <script src="/static/js/jquery.js"></script>
@@ -65,7 +125,45 @@
     </script>
     <link rel="stylesheet" href="/static/css/main.css">
 </head>
-<div class="bg-normal">
+<!-- <div id="formbackground" style="width:100%; height:100%; z-index:-1">
+    <img src="/static/img/piaobg.png" height="100%" width="100%"/>
+</div> -->
+<div class='piao-text'>
+    <p><img src="/static/img/G-STEPSm.png" class='img-steps'> <span class='five-font'>五周年公演</span></p>
+    <p>集赞抢1折入场券</p>
+</div>
+<div class='nextbg'>
+    <p class='cheer-tip'><span class='order-detail'>确认订单详情</span></p>
+    <div class='order-wrapper'>
+        <div class='order-info'>
+            <div class='info-item'>
+                {% if discot == 'true' %}
+                <p class='item-title'>原价：¥550元</p>
+                <p class='item-content content'>¥55<span style="font-size:17px">元</span></p>
+                {% else %}
+                <p class='item-title'>原价：</p>
+                <p class='item-content content'>¥550<span style="font-size:17px">元</span></p>
+                {% end %}
+            </div>
+            <div class='info-item'>
+                <p class='item-title'>{{name}}：</p>
+                <p class='item-title content' style='line-height: 40px;'>{{phone}}</p>
+            </div>
+        </div>
+        <p class='order-tip'>公演活动时间：2018年7月21日</p>
+        <p class='order-tip'>公演活动地点：望京浦项中心</p>
+        <div class="list-row">
+            <p>
+                入场须知
+            </p>
+
+             <p>1.支付成功后，主办方会根据联系方式与您联系，并给予门票</p>
+             <p>2.本次活动不接受团款或者转让</p>
+             <p>3.本次活动所有解释权归G-STEPS CREW官方所有</p>
+        </div>
+    </div>
+</div>
+<!-- <div class="bg-normal">
 
    <div class="list-row">
        <p>确认订单信息</p>
@@ -105,10 +203,12 @@
         <p>3. 活动时间为2017年7月29日晚7点</p>
         <p>4. 本次活动不接受退款或者转让</p>
         <p>5. 本次活动解释权归G-STEPS CREW官方所有</p>
-   </div>
+   </div> -->
 
 <div class="button-wrapper button-wrapper-static" style="margin-top: 0.7rem;">
-    <a href="javascript:;" class="btn btn-white" id="orderCommit" onclick="pay();" style="background:#45688b;color:white">马上支付</a>
+    <a href="javascript:;" class="btn btn-common" id="orderCommit" onclick="pay();">
+        <img src="/static/img/pay.png">
+    </a>
 </div>
 </div>
 <!-- <input type="button" name="pay" value="确定支付" onclick="pay();"/> -->

@@ -1,0 +1,13 @@
+                <div class="remain_num">
+                    <!-- <img src="/static/img/bottom-slide.png" class="ticket gsteps_person_last" alt=""> -->
+
+                    <div class="exchange-wrapper">
+                        {% if  status == 'cheer_payed' %}
+                          <p>恭喜您已经成功兑换</p>
+                          <span class="remain_cheer_num" style='display: none'>{{ remain_cheer_num }}</span>
+                        {% else %}
+                          <p style='display: none'>还差<span class="remain_cheer_num">{{ remain_cheer_num }}</span>人加油即可</p>
+                        {% end %}
+                        
+                    </div>
+                </div>
