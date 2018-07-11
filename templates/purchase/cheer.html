@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>G-STEPS ST公演入场券！长大之后的一场玩耍！</title>
-    <meta name="description" content="一个连程序猿都会Hip-Hop的街舞社团，来瞧瞧我们的另一面！" />
+    <title>{{pre_tittle}}G-STEPS五周年公演</title>
+    <meta name="description" content="{{pre_tittle}}一个连程序猿都会Hip-Hop的街舞社团，来瞧瞧我们的另一面！" />
     <link rel="stylesheet" href="/static/css/main.css">
     <link rel="stylesheet" href="/static/css/count.css">
     <link rel="stylesheet" href="/static/css/layer.css">
@@ -209,7 +209,7 @@ $.ajax({
             wx.config(config);
             wx.ready(function () {
                 wx.onMenuShareAppMessage({
-                    title: 'G-STEPS ST公演入场券！长大之后的一场玩耍！',
+                    title: '{{pre_tittle}}G-STEPS ST公演入场券！长大之后的一场玩耍！',
                     desc: '一个连程序猿都会Hip-Hop的街舞工作室，来瞧瞧我们的另一面！',
                     link: data.res.link,
                     imgUrl: 'http://year4.tueye.com/static/img/logo.png',
@@ -322,7 +322,7 @@ $.ajax({
                     } else {
                         image_heart.eq(num-1).attr("src", "/static/img/choose_heart.png");
                         $(".remain_cheer_num").text(res.res.target_remain_cheer_num)
-                        $(".cheer-num").text(res.res.target_remain_cheer_num)
+                        $(".cheer-num").text(30 - res.res.target_remain_cheer_num)
                         // zan = layer.open({
                         // content:"<div class='zan_wrapper'><img src='/static/img/zan-success1.png' style='width: 100%'></img><img src='/static/img/make_sure.png' class='zan_make'></img>"
                         // })
