@@ -1,180 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{pre_tittle}}G-STEPS五周年公演</title>
-    <meta name="description" content="{{pre_tittle}}一个连程序猿都会Hip-Hop的街舞工作室，来瞧瞧我们的另一面！" />
-    <link rel="stylesheet" href="/static/css/main.css">
-    <link rel="stylesheet" href="/static/css/count.css">
-    <link rel="stylesheet" href="/static/css/layer.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{pre_tittle}}G-STEPS五周年公演</title>
+  <meta name="description" content="一个连程序猿都会Hip-Hop的街舞工作室，来瞧瞧我们的另一面！" />
+  <link rel="stylesheet" href="/static/css/main.css">
+  <link rel="stylesheet" href="/static/css/count.css">
+  <link rel="stylesheet" href="/static/css/layer.css">
+  <style type="text/css">
+  #formbackground {
+    background: url('/static/img/bgNew.png') no-repeat;
+    /*background-position: center center;*/
+    background-size: cover;
+  }
+</style>
 </head>
 <body>
-<img src="/static/img/logo.png" style="width:0px; height:0px; overflow:hidden; position: absolute;" alt="">
-<div id="formbackground" style="position:absolute; width:100%; height:100%; z-index:-1">
-<img src="/static/img/bgNew.png" height="100%" width="100%"/>
-<div class='buttons-wrapper'>
-  {% if isfinish == 'true'%}
-    <div class="button-wrapper">
-        <a href="javascript:;" class="btn btn-common"><img width='300px' src="/static/img/shouqing.png" alt=""></a>
-    </div>
-    <div class="button-wrapper">
-        <a href="/api/course/sign" class="btn btn-common"><img width='300px' src="/static/img/0basic.png" alt=""></a>
-    </div>
-  <!--   <div class="button-wrapper">
-      <a href="javascript:;" class="btn btn-finish">抱歉，活动已结束</a>
-  </div> -->
-  {% else %}
-    {% if discot == 'false'%}
-     <div class="button-wrapper">
-       <a href="/api/purchase/index" class="btn btn-common">
-        <img src="/static/img/purchaseSuccess.png"  style="position: relative;bottom: 48px" alt=""></a>
-       <!-- <a href="/api/purchase/index" class="btn btn-common">一折抢购入场券</a> -->
-    </div>
-    <!-- <p style="width: 100%; text-align: center;position: absolute;bottom: 130px;font-size: 17px;color: #BC0000">恭喜您已经成功购买</p> -->
-      <!--  <div class="button-wrapper">
-         <a href="javascript:;" class="btn btn-common">已成功购买</a>
+  <img src="/static/img/logo.png" style="width:0px; height:0px; overflow:hidden; position: absolute;" alt="">
+  <div id="formbackground" style="width:100%; z-index:-1">
+
+    <div class="title-wrap">
+      <img src="/static/img/newLogo.png" class="title1">
+      <div class="title2">
+        <h1><img src="/static/img/G-STEPS.png"></h1>
+        <h2>5周年公演</h2>
+        <h4>PLAY HARD</h4>
+        <h4>WORK HARD</h4>
+        <p>7月21日不见不散</p>
       </div>
-      <h3 class="ticket-title">入场时间：7月29日晚19:00</h3>
-      <h3 class="ticket-title">演出地点：798剧场</h3> -->
-    {% else %}
+    </div>
+
+    <div class="video-wrap">
+      <!-- <iframe frameborder="0" width="90%" src="https://v.qq.com/x/page/m05282tqfrb.html?start=0" allowfullscreen></iframe> -->
+      <iframe frameborder="0" width="90%" src="https://v.qq.com/iframe/player.html?vid=v0718k8wh16&tiny=0&auto=0" allowfullscreen></iframe>
+      <!-- <iframe width="90%" src="http://player.youku.com/embed/XMTU5OTE5ODQ3Ng==" frameborder=0 allowfullscreen></iframe> -->
+    </div>
+
+    <div class='buttons-wrapper'>
+      {% if isfinish == 'true'%}
         <div class="button-wrapper">
-          <a href="/api/purchase/index" class="btn btn-common"><img src="/static/img/yizhenew.png"  alt=""></a>
-          <!-- <a href="/api/purchase/index" class="btn btn-common">一折抢购入场券</a> -->
-       </div>
+          <a href="javascript:;" class="btn btn-common"><img width='300px' src="/static/img/shouqing.png" alt=""></a>
+        </div>
+        <div class="button-wrapper">
+          <a href="/api/course/sign" class="btn btn-common"><img width='300px' src="/static/img/0basic.png" alt=""></a>
+        </div>
+      {% else %}
+        {% if discot == 'false'%}
+          <div class="button-wrapper">
+           <a href="/api/purchase/index" class="btn btn-common">
+            <img src="/static/img/purchaseSuccess.png" alt=""></a>
+          </div>
+        {% else %}
+          <div class="button-wrapper">
+            <a href="/api/purchase/index" class="btn btn-common"><img src="/static/img/yizhenew.png"  alt=""></a>
+          </div>
 
-      <div class="button-wrapper">
-          <a href="/api/purchase/info" class="btn btn-common"><img src="/static/img/tuhaoNew.png" alt=""></a>
-          <!-- <a href="/api/purchase/info" class="btn btn-common">我是土豪，直接买</a> -->
-      </div>
+          <div class="button-wrapper">
+            <a href="/api/purchase/info" class="btn btn-common"><img src="/static/img/tuhaoNew.png" alt=""></a>
+          </div>
 
-      <div class='button-wrapper'>
+        <div class='button-wrapper'>
           <a href='javascript:;'><img src="/static/img/arrow.png" alt=""></a>
-      </div>
-    {% end %}
-    
-  {% end %}  
-</div>
+        </div>
+        {% end %}
 
-</div>
+      {% end %}  
+    </div>
 
-<div class="title-wrap">
-   <img src="/static/img/newLogo.png" class="title1">
-   <div class="title2">
-       <h1><img src="/static/img/G-STEPS.png"></h1>
-       <h2>5周年公演</h2>
-       <h4>PLAY HARD</h4>
-       <h4>WORK HARD</h4>
-       <p>7月21日不见不散</p>
-   </div>
-</div>
-<!-- <div id="counter">
-    <span class="days"></span>
-    <span class="hours"></span>
-    <span class="minutes"></span>
-    <span class="seconds"></span>
-</div> -->
+  </div>
 
-<div class="video-wrap">
-<!-- <iframe frameborder="0" width="90%" src="https://v.qq.com/x/page/m05282tqfrb.html?start=0" allowfullscreen></iframe> -->
-<iframe frameborder="0" width="90%" src="https://v.qq.com/iframe/player.html?vid=m05282tqfrb&tiny=0&auto=0" allowfullscreen></iframe>
-    <!-- <iframe width="90%" src="http://player.youku.com/embed/XMTU5OTE5ODQ3Ng==" frameborder=0 allowfullscreen></iframe> -->
-</div>
+
+  
 
 <!-- <div class="introtext-wrapper">
     <p style='text-align:center;'>一场长大之后的玩耍</p>
-</div> -->
+  </div> -->
 
-<div class='detail-page'>
+  <div class='detail-page'>
     <div class='button-wrapper logo'>
-        <a href='javascript:;'><img src="/static/img/logo_02.png" alt=""></a>
+      <a href='javascript:;'><img width='70px' src="/static/img/logo_02.png" alt=""></a>
     </div>
     <p class='introduction'>
-        G社周年公演由G-STEPS街舞工作室发起，每年一次，演出人员上均为上班族，今年参与舞台演出近300位，Play Hard Work Hard，希望您在忙碌的城市里，不要忘记玩耍
+      G社周年公演由G-STEPS街舞工作室发起，每年一次，演出人员上均为上班族，今年参与舞台演出近300位，Play Hard Work Hard，希望您在忙碌的城市里，不要忘记玩耍
     </p>
     <ul class='detail-content'>
-        <li class='detail-item'>
-            <img src="/static/img/item1.png">
-            <div>
-                <h2>5年</h2>
-                <p>G社最早由一群热爱Hip-Hop的上班族发起，创立5年有余</p>
-            </div>
-        </li>
-        <li class='detail-item'>
-            <img src="/static/img/item2.png">
-            <div>
-                <h2>专注零基础</h2>
-                <h2>四肢不协调</h2>
-                <p>独特的零基础小班教学，帮助你慢慢起步。</p>
-            </div>
-        </li>
-        <li class='detail-item'>
-            <img src="/static/img/item3.png">
-            <div>
-                <h2>5000人次</h2>
-                <p>G社创立至今，合作十余家上市公司，目前培训上班族超过5000人。</p>
-            </div>
-        </li>
-        <li class='detail-item'>
-            <img src="/static/img/item4.png">
-            <div>
-                <h2>2家门店</h2>
-                <p>旗舰店位于798艺术区北门第二门店位于望京SOHO。</p>
-            </div>
-        </li>
+      <li class='detail-item'>
+        <img width='128px' src="/static/img/item1.png">
+        <div>
+          <h2>5年</h2>
+          <p>G社最早由一群热爱Hip-Hop的上班族发起，创立5年有余</p>
+        </div>
+      </li>
+      <li class='detail-item'>
+        <img width='128px' src="/static/img/item2.png">
+        <div>
+          <h2>专注零基础</h2>
+          <h2>四肢不协调</h2>
+          <p>独特的零基础小班教学，帮助你慢慢起步。</p>
+        </div>
+      </li>
+      <li class='detail-item'>
+        <img width='128px' src="/static/img/item3.png">
+        <div>
+          <h2>5000人次</h2>
+          <p>G社创立至今，合作十余家上市公司，目前培训上班族超过5000人。</p>
+        </div>
+      </li>
+      <li class='detail-item'>
+        <img width='128px' src="/static/img/item4.png">
+        <div>
+          <h2>2家门店</h2>
+          <p>旗舰店位于798艺术区北门第二门店位于望京SOHO。</p>
+        </div>
+      </li>
     </ul>
     <div class="">
-        <a href="/api/course/sign" class="btn btn-common"><img width='300px' src="/static/img/dance.png" alt=""></a>
+      <a href="/api/course/sign" class="btn btn-common"><img width='300px' src="/static/img/dance.png" alt=""></a>
     </div>
-</div>
-<!-- discot {{discot}} -->
-<div class="footer">
+  </div>
+
+  <div class="footer">
     <a href="#">有问题，点这里</a>
-</div>
+  </div>
 
 
-<script src="/static/js/jquery.js"></script>
-<script src="/static/js/main.js"></script>
-<script>
-$.ajax({
-        url: "/api/purchase/wechatjsapi",
-        type: "post",
-        data: {'current_url': document.URL},
-        dataType: "json",
-        success: function (data) {
-            var config = {
+  <script src="/static/js/jquery.js"></script>
+  <script src="/static/js/main.js"></script>
+  <script>
+        // 禁止分享 begin
+    function onBridgeReady() {
+            WeixinJSBridge.call('hideOptionMenu');
+        }
+
+        if (typeof WeixinJSBridge == "undefined") {
+            if (document.addEventListener) {
+                document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+            } else if (document.attachEvent) {
+                document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+                document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+            }
+        } else {
+            onBridgeReady();
+        }
+        // 禁止分享 end
+    $.ajax({
+      url: "/api/purchase/wechatjsapi",
+      type: "post",
+      data: {'current_url': document.URL},
+      dataType: "json",
+      success: function (data) {
+        var config = {
                 debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
                 appId: data.res.appid, // 必填，公众号的唯一标识
                 timestamp: data.res.timestamp, // 必填，生成签名的时间戳
                 nonceStr: data.res.noncestr, // 必填，生成签名的随机串
                 signature: data.res.signature,// 必填，签名，见附录1
                 jsApiList: data.res.js_api_list// 必填，需要使用的JS接口列表，所有JS接口列表见附录2
-            }
+              }
 
-            console.log(config);
-            wx.config(config);
-            wx.ready(function () {
+              console.log(config);
+              wx.config(config);
+              wx.ready(function () {
                 wx.onMenuShareAppMessage({
-                    title: '{{pre_tittle}}G-STEPS ST公演入场券！长大之后的一场玩耍！',
-                    desc: '一个连程序猿都会Hip-Hop的街舞工作室，来瞧瞧我们的另一面！',
-                    link: data.res.link,
-                    imgUrl: 'http://year4.tueye.com/static/img/logo.png',
-                    trigger: function (res) {
-                    },
-                    success: function (res) {
-                    },
-                    cancel: function (res) {
-                    },
-                    fail: function (res) {
-                        alert(JSON.stringify(res));
-                    }
+                  title: '{{pre_tittle}}G-STEPS ST公演入场券！长大之后的一场玩耍！',
+                  desc: '一个连程序猿都会Hip-Hop的街舞工作室，来瞧瞧我们的另一面！',
+                  link: data.res.link,
+                  imgUrl: 'http://year4.tueye.com/static/img/logo.png',
+                  trigger: function (res) {
+                  },
+                  success: function (res) {
+                  },
+                  cancel: function (res) {
+                  },
+                  fail: function (res) {
+                    alert(JSON.stringify(res));
+                  }
                 });
-            })
-        }
-    })
-</script>
-<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> 
-<script>
-</script>
-</body>
-</html>
+              })
+            }
+          })
+        </script>
+        <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> 
+        <script>
+        </script>
+      </body>
+      </html>

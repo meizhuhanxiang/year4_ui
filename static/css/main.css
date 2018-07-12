@@ -141,8 +141,8 @@ body {
   width: 72%;
 }
 .buttons-wrapper {
-  position: absolute;
-  bottom: 20px;
+/*  position: absolute;
+  bottom: 20px;*/
   width: 100%;
 }
 .title-wrap .title2 h2 {
@@ -242,17 +242,23 @@ body {
   margin-top: 10px;
 }
 .footer {
-    position: absolute;
-    bottom: 15px;
+/*    position: absolute;
+    bottom: 15px;*/
     text-align: center;
     width: 100%;
     color: #4e91ff;
+    margin-top: 10px;
+    padding-bottom: 30px;
 }
 .footer a {
+  /*position: fixed;*/
+  /*bottom: 10px;*/
+  margin-top: 10px;
+  transform: translateX(-50%);
     font-size: 12px;
-    color: #fff;
+    color: #999;
     margin: 0 5px;
-    border: 1px solid #fff;
+    border: 1px solid #999;
     border-radius: 14px;
     padding: 6px 10px;
 }
@@ -480,8 +486,8 @@ body {
     font-size: 0.38rem;
 }
 .detail-page {
-  position: absolute;
-  top: 100%;
+  /*position: absolute;*/
+  /*top: 100%;*/
   width: 80%;
   margin-left: 10%;
 }

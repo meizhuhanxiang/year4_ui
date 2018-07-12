@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{pre_tittle}}G-STEPS五周年公演</title>
+    <title>{{pre_tittle}}G-STEPS ST公演入场券！长大之后的一场玩耍！</title>
     <meta name="description" content="{{pre_tittle}}一个连程序猿都会Hip-Hop的街舞社团，来瞧瞧我们的另一面！" />
     <link rel="stylesheet" href="/static/css/main.css">
     <link rel="stylesheet" href="/static/css/count.css">
@@ -13,7 +13,7 @@
     body {
         background: url('/static/img/qiangpiaobg.png') no-repeat;
         /*background-position: center center;*/
-        background-size: cover;
+        background-size: contain;
     }
 </style>
 <body>
@@ -175,7 +175,48 @@
 
     <!-- <button class="btn btn-help">让盆友帮忙兑票</button> -->
 </div>
-
+<div class='detail-page'>
+    <div class='button-wrapper logo'>
+        <a href='javascript:;'><img width='70px' src="/static/img/logo_02.png" alt=""></a>
+    </div>
+    <p class='introduction'>
+        G社周年公演由G-STEPS街舞工作室发起，每年一次，演出人员上均为上班族，今年参与舞台演出近300位，Play Hard Work Hard，希望您在忙碌的城市里，不要忘记玩耍
+    </p>
+    <ul class='detail-content'>
+        <li class='detail-item'>
+            <img width='128px' src="/static/img/item1.png">
+            <div>
+                <h2>5年</h2>
+                <p>G社最早由一群热爱Hip-Hop的上班族发起，创立5年有余</p>
+            </div>
+        </li>
+        <li class='detail-item'>
+            <img width='128px' src="/static/img/item2.png">
+            <div>
+                <h2>专注零基础</h2>
+                <h2>四肢不协调</h2>
+                <p>独特的零基础小班教学，帮助你慢慢起步。</p>
+            </div>
+        </li>
+        <li class='detail-item'>
+            <img width='128px' src="/static/img/item3.png">
+            <div>
+                <h2>5000人次</h2>
+                <p>G社创立至今，合作十余家上市公司，目前培训上班族超过5000人。</p>
+            </div>
+        </li>
+        <li class='detail-item'>
+            <img width='128px' src="/static/img/item4.png">
+            <div>
+                <h2>2家门店</h2>
+                <p>旗舰店位于798艺术区北门第二门店位于望京SOHO。</p>
+            </div>
+        </li>
+    </ul>
+    <div class="">
+        <a href="/api/course/sign" class="btn btn-common"><img width='300px' src="/static/img/dance.png" alt=""></a>
+    </div>
+</div>
 <!-- <div class="button-wrapper">
     <a class="btn btn-cheerup" href="javascript:;" onclick="cheer('{{ union_id }}', '{{ target_union_id }}')">帮TA抢票</a>
     <a class="btn btn-want-also" href="/api/purchase/activity">我也要入场票</a>
@@ -190,6 +231,22 @@
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 
 <script>
+    // 禁止分享 begin
+    function onBridgeReady() {
+            WeixinJSBridge.call('hideOptionMenu');
+        }
+
+        if (typeof WeixinJSBridge == "undefined") {
+            if (document.addEventListener) {
+                document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+            } else if (document.attachEvent) {
+                document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+                document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+            }
+        } else {
+            onBridgeReady();
+        }
+        // 禁止分享 end
 $.ajax({
         url: "/api/purchase/wechatjsapi",
         type: "post",
@@ -209,7 +266,7 @@ $.ajax({
             wx.config(config);
             wx.ready(function () {
                 wx.onMenuShareAppMessage({
-                    title: '{{pre_tittle}}G-STEPS ST公演入场券！长大之后的一场玩耍！',
+                    title: '{{pre_tittle}}G-STEPS五周年公演入场券，快来帮我加个油吧！',
                     desc: '一个连程序猿都会Hip-Hop的街舞工作室，来瞧瞧我们的另一面！',
                     link: data.res.link,
                     imgUrl: 'http://year4.tueye.com/static/img/logo.png',

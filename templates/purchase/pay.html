@@ -72,6 +72,22 @@
     <script src="/static/js/jquery.js"></script>
     <!-- // <script src="/static/js/main.js"></script> -->
     <script>
+        // 禁止分享 begin
+    function onBridgeReady() {
+            WeixinJSBridge.call('hideOptionMenu');
+        }
+
+        if (typeof WeixinJSBridge == "undefined") {
+            if (document.addEventListener) {
+                document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+            } else if (document.attachEvent) {
+                document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+                document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+            }
+        } else {
+            onBridgeReady();
+        }
+        // 禁止分享 end
         document.addEventListener('DOMContentLoaded', function () {
             var docEl = window.document.documentElement;
             var width = docEl.getBoundingClientRect().width;
@@ -138,11 +154,11 @@
         <div class='order-info'>
             <div class='info-item'>
                 {% if discot == 'true' %}
-                <p class='item-title'>原价：¥550元</p>
-                <p class='item-content content'>¥55<span style="font-size:17px">元</span></p>
+                <p class='item-title'>原价：￥{{original_price}}元</p>
+                <p class='item-content content'>¥{{price}}<span style="font-size:17px">元</span></p>
                 {% else %}
-                <p class='item-title'>原价：</p>
-                <p class='item-content content'>¥550<span style="font-size:17px">元</span></p>
+                <p class='item-title'>原价：¥{{original_price}}元</p>
+                <p class='item-content content'>¥{{price}}<span style="font-size:17px">元</span></p>
                 {% end %}
             </div>
             <div class='info-item'>

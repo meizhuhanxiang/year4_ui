@@ -75,5 +75,23 @@
 <script src="/static/js/valid.js"></script>
 <!-- <script src="/static/js/main.js"></script> -->
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> 
+<script>
+        // 禁止分享 begin
+    function onBridgeReady() {
+            WeixinJSBridge.call('hideOptionMenu');
+        }
+
+        if (typeof WeixinJSBridge == "undefined") {
+            if (document.addEventListener) {
+                document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+            } else if (document.attachEvent) {
+                document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+                document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+            }
+        } else {
+            onBridgeReady();
+        }
+        // 禁止分享 end
+</script>
 </body>
 </html>
