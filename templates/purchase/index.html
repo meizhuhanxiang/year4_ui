@@ -16,12 +16,13 @@
     background-size: cover;
 }
 #cheer_payed {
-    background: url('/static/img/bgNew.png') no-repeat;
+    background: url('/static/img/signBg.png') no-repeat;
     /*background-position: center center;*/
     background-size: cover;
 }
 </style>
 <body>
+    <p style='display: none'>你的盆友还差<span class="remain_cheer_num">{{ remain_cheer_num }}</span>人加油即可</p>
     <img src="/static/img/logo.png" style="width:0px; height:0px; overflow:hidden; position: absolute;"  alt="">
 
     {% if status == 'cheer_payed'%}
@@ -207,16 +208,19 @@
                 <p>否则太晚，座位都被坐完，您就可能只能站着看</p>
             </div> -->
             <div class="button-wrapper" style="margin-top: 10%">
-              <a href="javascript:;" class="btn btn-common btn-want">已成功购买</a>
+              <a href="javascript:;" class="btn btn-common btn-want">
+                  <img src="/static/img/purchaseSuccess.png">
+              </a>
           </div>
           {% else %}
 
           <div class="button-wrapper" style="margin-top: 10%">
-            <a href='javascript:;' class='btn btn-common btn-help'><img src="/static/img/pengyou.png" alt=""></a>
-            <!-- <p class="want-tips" style="display:none"><img src="/static/img/share-text.png" style="width: 80%;" alt=""></p> -->
             <p class="want-tips" style="display:none;color: #000">
                 <img style='width:100px' src="/static/img/nidongde.png">
             </p>
+            <a href='javascript:;' class='btn btn-common btn-help'><img src="/static/img/pengyou.png" alt=""></a>
+            <!-- <p class="want-tips" style="display:none"><img src="/static/img/share-text.png" style="width: 80%;" alt=""></p> -->
+            
         </div>
         {% end %}
     {% end %}
