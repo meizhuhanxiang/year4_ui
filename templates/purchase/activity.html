@@ -130,21 +130,21 @@
   <script src="/static/js/main.js"></script>
   <script>
         // 禁止分享 begin
-    function onBridgeReady() {
-            WeixinJSBridge.call('hideOptionMenu');
-        }
-
-        if (typeof WeixinJSBridge == "undefined") {
-            if (document.addEventListener) {
-                document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
-            } else if (document.attachEvent) {
-                document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
-                document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
-            }
-        } else {
-            onBridgeReady();
-        }
-        // 禁止分享 end
+//    function onBridgeReady() {
+//            WeixinJSBridge.call('hideOptionMenu');
+//        }
+//
+//        if (typeof WeixinJSBridge == "undefined") {
+//            if (document.addEventListener) {
+//                document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+//            } else if (document.attachEvent) {
+//                document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+//                document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+//            }
+//        } else {
+//            onBridgeReady();
+//        }
+//        // 禁止分享 end
 </script>
   <script>
     $.ajax({
