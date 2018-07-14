@@ -38,16 +38,23 @@
     </div>
 
     <div class='buttons-wrapper'>
+      <p class='success-tip'>活动时间地点：2018年7月21日19:00  望京浦项中心</p>
       {% if isfinish == 'true'%}
+        {% if status == 'cheer_payed'%}
+          <div class="button-wrapper">
+           <a href="javascript:;" class="btn btn-common">
+            <img src="/static/img/purchaseSuccess.png" alt=""></a>
+          </div>
+        {% else %}
         <div class="button-wrapper">
           <a href="javascript:;" class="btn btn-common"><img width='300px' src="/static/img/shouqing.png" alt=""></a>
         </div>
+        {% end %}
         <div class="button-wrapper">
           <a href="/api/course/sign" class="btn btn-common"><img width='300px' src="/static/img/0basic.png" alt=""></a>
         </div>
       {% else %}
-        {% if discot == 'false'%}
-          <p class='success-tip'>活动时间地点：2018年7月21日19:00  望京浦项中心</p>
+        {% if status == 'cheer_payed'%}
           <div class="button-wrapper">
            <a href="javascript:;" class="btn btn-common">
             <img src="/static/img/purchaseSuccess.png" alt=""></a>
